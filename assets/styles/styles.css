@@ -1,9 +1,12 @@
 /*
+
 @@@@@ TABLE OF CONTENTS @@@@@
 
+To navigate, simply ctrl+F to the section
+
 1. SETUP - normalize, clearfix, border-box
-2. GENERAL - styles shared across more than one of the sections below
-3. TOGGLES - class styles for bulk breakpoint changes
+2. GENERAL - styles shared across more than one of the content blocks below
+3. TOGGLES - class styles for toggling
 3. HEADER
 4. MAIN
     a. FEATURED POST
@@ -26,6 +29,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 /* ===== GENERAL ===== */
 
 body {
+    /* CSS variables */
     --primary-color: #815600;
     --secondary-color: #500801;
     --button-color: #1d0303;
@@ -33,10 +37,12 @@ body {
     --heading-font: "Petit Formal Script", "Comic Sans", cursive, sans-serif;
     --info-font: "Roboto", sans-serif;
 
+    /* Base colours for all content blocks (might get overridden) */
     color: var(--text-color);
     background-color: var(--primary-color);
 }
 
+/* Creates alternating background colours */
 main > *:nth-child(even) { background-color: var(--primary-color); }
 main > *:nth-child(odd) { background-color: var(--secondary-color); }
 
@@ -49,6 +55,15 @@ button {
 
 h1,h2,h3,h4,h5,h6,
 button { font-family: var(--heading-font); }
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; text-align: center; }
+button { display: block; margin: 0 auto; }
+
+li, p { font-family: var(--info-font); }
+p {
+    font-weight: 300;
+    line-height: 1.5rem;
+}
 
 /* ===== TOGGLES ===== */
 
@@ -67,13 +82,18 @@ img {
 
 /* ===== HEADER ===== */
 
-.hero-title-container h1 {
+.hero-container > * {
+    margin-bottom: 1rem;
+}
+
+h1 {
     font-size: 3rem;
     text-align: right;
 }
-.hero-title-container h1 span { display: block; }
 
-.hero-title-container img {
+.hero-container span { display: block; }
+
+.hero-container img {
     position: relative;
     left: -15%;
     width: 100%;
@@ -81,5 +101,19 @@ img {
 
 /* ===== MAIN ===== */
 
-/* === MAIN: FEATURED POST === */
+/* ##### MAIN: FEATURED POST ##### */
 
+.featured-post img {
+    margin-top: 30px;
+}
+
+.featured-post h2 {
+    margin: 20px 0;
+}
+
+
+/* DELETE BELOW LATER */
+
+main > *:not(:first-child), footer {
+    display: none;
+}
