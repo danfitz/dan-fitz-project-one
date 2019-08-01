@@ -14,28 +14,51 @@
     <body>
         
         <header>
-            <!-- Sandwich icon goes here -->
-            <div style="height: 50px; width: 50px;"></div>
-            <nav class="main-nav wrapper mobile-hide">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Blog</li>
-                    <li>Contact</li>
+            <div class="wrapper">
+                <!-- Sandwich icon -->
+                <div class="sandwich-icon mobile-only">
+                    <i class="fas fa-bars" aria-hidden></i>
+                    <span class="sr-only">Main Navigation</span>
+                </div>
+        
+                <nav class="main-nav desktop-only">
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Blog</li>
+                        <li>Contact</li>
+                    </ul>
+                </nav>
+    
+                <div class="hero-container clearfix">
+                    <h1>Galass<span> Handbags</span></h1>
+                    <img src="assets/images/group-bags.png" alt="An assortment of Galass handbags on display"></img>
+                </div>
+
+                <ul class="social-media-icons desktop-only">
+                    <li>
+                        <i class="fab fa-instagram" aria-hidden></i>
+                        <span class="sr-only">Instagram</span>
+                    </li>
+                    <li>
+                        <i class="fab fa-facebook" aria-hidden></i>
+                        <span class="sr-only">Facebook</span>
+                    </li>
+                    <li>
+                        <i class="fab fa-snapchat" aria-hidden></i>
+                        <span class="sr-only">Snapchat</span>
+                    </li>
+                    <li>
+                        <i class="fab fa-twitter" aria-hidden></i>
+                        <span class="sr-only">Twitter</span>
+                    </li>
                 </ul>
-            </nav>
-            <div class="hero-container wrapper">
-                <h1>Galass <span>Handbags</span></h1>
-                <img src="assets/images/group-bags.png" alt="An assortment of Galass handbags on display"></img>
-            </div>
-            <div class="social-media-icons mobile-hide">
-                <!-- Instagram, Facebook, Snapchat, Twitter icons go here -->
             </div>
         </header>
         
         <main>
             <section class="featured-post">
-                <div class="post-content wrapper">
+                <div class="post-content wrapper clearfix">
                     <img src="assets/images/square-photo.jpg" alt="Our beautiful hand-crafted Progue tote in sea green" />
                     <h2>Hand crafted</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pulvinar tortor nulla elementum eleifend. Vestibulum consequat vestibulum felis pharetra luctus. Quisque interdum orci quis convallis dapibus nulla pulvinar tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pulvinar tortor nulla elementum eleifend. Vestibulum
@@ -46,14 +69,14 @@
 
             <section class="latest-collection">
                 <h2>Latest Collection</h2>
-                <figure>
+                <figure class="clearfix">
                     <img src="assets/images/gallery-photo-1.jpg" alt="Clair de Lune clutch in midnight black with pearl-chained strap" />
                     <img src="assets/images/gallery-photo-2.jpg" alt="Pleather purse with floral handpaintings in collaboration with street artist Jacqueline Okana" />
                     <img src="assets/images/gallery-photo-3.jpg" alt="Take in the sun this summer while wearing our chic daisy white Pocket Purse" />
                 </figure>
             </section>
             
-            <nav class="sub-nav">
+            <nav class="sub-nav clearfix">
                 <div class="sub-nav-item">
                     <!-- Fontawesome goes here -->
                     <h3>Catalogue</h3>
@@ -70,14 +93,14 @@
             
             <section class="secondary-posts">
                 <div class="secondary-post">
-                    <div class="post-content">
+                    <div class="post-content clearfix">
                         <h2></h2>
                         <p></p>
                         <button>read more</button>
                     </div>
                 </div>
                 <div class="secondary-post">
-                    <div class="post-content">
+                    <div class="post-content clearfix">
                         <h2></h2>
                         <p></p>
                         <button>read more</button>
@@ -98,5 +121,7 @@
             </div>
         </footer>
 
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/94656c5317.js"></script>
     </body>
 </html>
