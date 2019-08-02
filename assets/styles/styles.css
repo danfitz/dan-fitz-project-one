@@ -10,7 +10,7 @@ To navigate, simply ctrl+F to the section
 3. HEADER
 4. MAIN
     a. FEATURED POST
-    b. ???
+    b. LATEST COLLECTION
 X. BREAKPOINTS
 
 */
@@ -39,47 +39,66 @@ html {
     --heading-font: "Petit Formal Script", cursive, sans-serif;
     --info-font: "Roboto", sans-serif;
     
+    /* Base font set to 20px (for most browsers) */
+    font-size: 125%;
+    
     /* Base colours for all content blocks (might get overridden) */
     color: var(--text-color);
     background-color: var(--primary-color);
-    
-    /* Base font set to 20px (for most browsers) */
-    font-size: 125%;
 }
 
-header, main > * { padding: 20px 0; }
-
-/* Creates alternating background colours */
-main > *:nth-child(even) { background-color: var(--primary-color); }
+/* Every other section will be given a red background colour */
+/* Creates alternating background colours when combined with base above */
 main > *:nth-child(odd) { background-color: var(--secondary-color); }
 
+/* Every section gets top and bottom padding for breathing room */
+header, main > * { padding: 35px 0; }
 
+/* Shared properties across all headings and buttons */
 h1,h2,h3,h4,h5,h6,button {
     font-family: var(--heading-font);
     font-weight: 400;
 }
-h1 { font-size: 2.5rem; }
+/* Unique properties to each heading and button */
+h1 {
+    font-size: 2.5rem;
+    line-height: 2.62rem;
+}
 h2 {
+    margin-top: 0;
     font-size: 1.5rem;
+    line-height: 1.57rem;
     text-align: center;
 }
-
-li, p { font-family: var(--info-font); }
-p {
-    font-weight: 300;
-    line-height: 1.2rem;
-}
-
-img {
-    max-width: 100%;
-}
-
+h3 { font-size: 1.25rem; }
 button {
-    padding: 5px 10px;
+    padding: 5px 20px;
     color: var(--text-color);
     background-color: var(--button-color);
     border: none;
+    font-size: 1rem;
+    line-height: 1.2rem;
+
+    /* Centers buttons */
+    display: block;
+    margin: 0 auto;
 }
+
+/* Shared properties for li and p elements */
+li, p { font-family: var(--info-font); }
+p {
+    font-weight: 300;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+}
+
+/* Keeps images within their containers */
+img {
+    width: 100%;
+}
+
+/* Removes bullet points */
+ul { list-style-type: none; }
 
 
 
@@ -103,7 +122,7 @@ button {
 
 /* ===== HEADER ===== */
 
-header { padding-top: 10px; } /* special case: overrides padding in GENERAL */
+header { padding-top: 2px; } /* special case: overrides padding in GENERAL */
 
 .sandwich-icon {
     margin-bottom: 10px;
@@ -115,32 +134,47 @@ header { padding-top: 10px; } /* special case: overrides padding in GENERAL */
 .hero-container { clear: both; }
 
 h1 {
-    position: relative;
-    right: -5px; /* This helps make h1 more flush with wrapper right edge */
-    margin-top: 0;
-    margin-bottom: 10px;
-    text-align: right;
-    max-width: 15rem;
     float: right;
+    position: relative;
+    right: -5px; /* This helps make h1 more flush with wrapper edge on right side */
+    margin: 0 0 10px;
+    max-width: 15rem; /* tight width forces title to take up 2 lines */
+    text-align: right;
 }
 
 .hero-container img {
-    /* display: block; */
-    /* clear: both; */
+    /* display: block;
+    clear: both; */
     position: relative;
     left: -15%;
     width: 100%;
-    max-width: 20rem; /* or 500px */
+    /* max-width: 20rem; or 500px */
 }
+
+
 
 /* ===== MAIN ===== */
 
 /* ##### MAIN: FEATURED POST ##### */
 
-.featured-post img {
-    margin-top: 30px;
-    width: 100%;
+.featured-post h2 {
+    margin-top: 25px;
 }
+
+/* ##### MAIN: LATEST COLLECTION ##### */
+
+.latest-collection li:nth-child(2) { display: none; } /* Hides 2nd image */
+
+.latest-collection li:not(:nth-child(2)) { width: calc(50% - 5px); }
+
+.latest-collection li:first-child {
+    float: right;
+    margin-left: 10px;
+}
+.latest-collection li:last-child {
+    float: left;
+}
+
 
 
 /* ===== BREAKPOINTS ===== */
@@ -168,6 +202,6 @@ h1 {
 
 /* DELETE BELOW LATER */
 
-main > *:not(:first-child), footer {
+main > *:not(:first-child):not(:nth-child(2)), footer {
     display: none;
 }
