@@ -11,6 +11,7 @@ To navigate, simply ctrl+F to the section
 4. MAIN
     a. FEATURED POST
     b. LATEST COLLECTION
+    c. SUB NAV
 X. BREAKPOINTS
 
 */
@@ -92,14 +93,18 @@ p {
     line-height: 1.2rem;
 }
 
-/* Keeps images within their containers */
+/* Keeps images within their containers but fills them up */
 img {
     width: 100%;
 }
 
 /* Removes bullet points */
-ul { list-style-type: none; }
+ul {
+    list-style-type: none;
+    padding: 0;
+}
 
+i { font-size: 2rem; }
 
 
 /* ===== TOGGLES ===== */
@@ -110,13 +115,8 @@ ul { list-style-type: none; }
     margin: 0 auto;
 }
 
-.desktop-only {
-    display: none;
-}
-
-.mobile-only {
-    display: block;
-}
+.desktop-only { display: none; }
+.mobile-only { display: block; }
 
 
 
@@ -127,8 +127,6 @@ header { padding-top: 2px; } /* special case: overrides padding in GENERAL */
 .sandwich-icon {
     margin-bottom: 10px;
     float: right;
-    font-size: 2rem;
-    font-weight: 400;
 }
 
 .hero-container { clear: both; }
@@ -143,8 +141,6 @@ h1 {
 }
 
 .hero-container img {
-    /* display: block;
-    clear: both; */
     position: relative;
     left: -15%;
     width: 100%;
@@ -161,6 +157,14 @@ h1 {
     margin-top: 25px;
 }
 
+.featured-post img {
+    object-fit: cover;
+    object-position: top left;
+    height: 250px;
+    height:
+}
+
+
 /* ##### MAIN: LATEST COLLECTION ##### */
 
 .latest-collection li:nth-child(2) { display: none; } /* Hides 2nd image */
@@ -175,6 +179,35 @@ h1 {
     float: left;
 }
 
+/* Removes empty space at bottom of container */
+.latest-collection img { display: block; }
+
+
+/* ##### MAIN: SUB NAV ##### */
+
+.sub-nav { text-align: center; }
+
+.sub-nav h3 { margin: 25px 0; }
+
+/* Removes margin to match spacing at top of container */
+.sub-nav-item:last-child h3 { margin-bottom: 0; }
+
+
+/* ##### MAIN: SECONDARY POSTS ##### */
+
+.secondary-posts {
+    padding: 0;
+}
+
+.secondary-post-content {
+    padding: 35px 0;
+}
+
+.secondary-post img {
+    object-fit: cover;
+    /* object-position: center; */
+    height: 200px;
+}
 
 
 /* ===== BREAKPOINTS ===== */
@@ -202,6 +235,6 @@ h1 {
 
 /* DELETE BELOW LATER */
 
-main > *:not(:first-child):not(:nth-child(2)), footer {
+main > *:nth-child(n+6), footer {
     display: none;
 }
