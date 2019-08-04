@@ -54,7 +54,7 @@ html {
 main > *:nth-child(odd) { background-color: var(--secondary-color); }
 
 /* Every section gets top and bottom padding for breathing room */
-header, main > *, footer > * { padding: 35px 0; }
+header, main > *, footer > * { padding: 1.75rem 0; }
 
 /* Shared properties across all headings and buttons */
 h1,h2,h3,h4,h5,h6,button {
@@ -74,7 +74,7 @@ h2 {
 }
 h3 { font-size: 1.25rem; }
 button {
-    padding: 5px 20px;
+    padding: 0.25rem 1rem;
     color: var(--text-color);
     background-color: var(--button-color);
     border: none;
@@ -93,7 +93,11 @@ li, p, label {
     font-size: 0.8rem;
     line-height: 1.2rem;
 }
-p { letter-spacing: 2px; } 
+p {
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+label { display: block; }
 
 /* Keeps images within their containers but fills them up */
 img {
@@ -118,26 +122,25 @@ i { font-size: 2rem; }
 }
 
 .mobile-only { display: block; }
-.tablet-only { display: none; }
-.desktop-only { display: none; }
+.tablets-and-up { display: none; }
 
 
 /* ===== HEADER ===== */
 
-header { padding-top: 5px; } /* special case: overrides padding in GENERAL */
+header { padding-top: 0.25rem; } /* special case: overrides padding in GENERAL */
 
 .sandwich-icon {
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
     float: right;
 }
 
-.hero-container { clear: both; }
+.hero-container, .hero-title { clear: both; }
 
 h1 {
     float: right;
     position: relative;
-    right: -5px; /* This helps make h1 more flush with wrapper edge on right side */
-    margin: 0 0 10px;
+    right: -0.25rem; /* This helps make h1 more flush with wrapper edge on right side */
+    margin: 0 0 0.5rem;
     max-width: 15rem; /* tight width forces title to take up 2 lines */
     text-align: right;
 }
@@ -155,13 +158,13 @@ h1 {
 /* ##### MAIN: FEATURED POST ##### */
 
 .featured-post h2 {
-    margin-top: 25px;
+    margin-top: 1.25rem;
 }
 
 .featured-post img {
-    object-fit: cover;
-    object-position: top left;
-    height: 250px;
+    /* object-fit: cover; */
+    /* object-position: top left; */
+    /* height: 250px; */
 }
 
 
@@ -169,11 +172,11 @@ h1 {
 
 .latest-collection li:nth-child(2) { display: none; } /* Hides 2nd image */
 
-.latest-collection li:first-child, .latest-collection li:last-child { width: calc(50% - 5px); }
+.latest-collection li:first-child, .latest-collection li:last-child { width: calc(50% - 0.25rem); }
 
 .latest-collection li:first-child {
     float: right;
-    margin-left: 10px;
+    margin-left: 0.5rem;
 }
 .latest-collection li:last-child {
     float: left;
@@ -187,7 +190,8 @@ h1 {
 
 .sub-nav { text-align: center; }
 
-.sub-nav h3 { margin: 25px 0; }
+.sub-nav i { font-size: 2rem; }
+.sub-nav h3 { margin: 1.25rem 0; }
 
 /* Removes margin to match spacing at top of container */
 /* .sub-nav-item:last-child h3 { margin-bottom: 0; } */
@@ -200,34 +204,36 @@ h1 {
 }
 
 .secondary-post-content {
-    padding: 35px 0;
+    padding: 1.75rem 0;
 }
 
 .secondary-post img {
-    object-fit: cover;
+    /* object-fit: cover; */
     /* object-position: center; */
-    height: 200px;
+    /* height: 200px; */
 }
 
 
 
 /* ===== FOOTER ===== */
-
 footer { text-align: center; }
 .footer-content { background-color: var(--secondary-color); }
-footer p { margin: 0; letter-spacing: 0; }
+.footer-content p {
+    margin: 0;
+    letter-spacing: 0;
+}
 
-.footer-nav { margin: 0 0 35px; }
+.footer-nav { margin: 0 0 1.75rem; }
 .footer-nav li {
     width: 25%;
     float: left;
     font-weight: 400;
 }
 
-.subscribe-form input, .subscribe-form button { margin-top: 10px; }
+.subscribe-form input, .subscribe-form button { margin-top: 0.5rem; }
 .subscribe-form input {
     width: 100%;
-    padding: 5px 0;
+    padding: 0.25rem 0;
     border-radius: 0;
     border: none;
     text-align: center;
@@ -237,7 +243,7 @@ footer p { margin: 0; letter-spacing: 0; }
 
 .copyright {
     background-color: var(--button-color);
-    padding: 10px 0;
+    padding: 0.5rem 0;
 }
 .copyright p { margin: 0; }
 
@@ -248,18 +254,19 @@ footer p { margin: 0; letter-spacing: 0; }
 
 /* ===== BREAKPOINTS ===== */
 
-@media screen and (min-width: 769px) {
+/* ##### BREAKPOINTS: TABLETS & UP ##### */
+@media screen and (min-width: 768px) {
     .mobile-only { display: none; }
-    .tablet-only { display: block; }
-    .desktop-only { display: block; }
+    .tablets-and-up { display: block; }
 
     /* HEADER BREAKPOINT */
     header { position: relative; }
+    
     .hero-title, .hero-container img {
         float: left;
         width: calc(50% - 40px);
     }
-    .hero-container h1 {
+    h1 {
         margin-top: 5rem;
     }
     .hero-container img {
@@ -280,7 +287,7 @@ footer p { margin: 0; letter-spacing: 0; }
         text-align: center;
     }
     .social-media-icons i {
-        padding-top: 5px;
+        padding-top: 0.25rem;
         font-size: 1rem;
     }
 
@@ -288,10 +295,10 @@ footer p { margin: 0; letter-spacing: 0; }
     .latest-collection li:nth-child(1n) /* Targets all children */ {
         display: block;
         float: left;
-        width: calc(33% - 14px);
+        width: calc(33% - 0.7rem);
     }
     .latest-collection li:first-child { margin: 0; }
-    .latest-collection li:not(:first-child) { margin-left: 21px; }
+    .latest-collection li:not(:first-child) { margin-left: 1.05rem; }
 
     /* SUB NAV BREAKPOINT */
     .sub-nav li {
@@ -300,7 +307,7 @@ footer p { margin: 0; letter-spacing: 0; }
     }
 
     /* FOOTER NAV BREAKPOINT */
-    .footer-nav ul { margin-top: 0; }
+    .footer-nav ul { margin-top: 0;  }
     .footer-nav li {
         float: none;
         width: 100%;
@@ -308,14 +315,86 @@ footer p { margin: 0; letter-spacing: 0; }
     .subscribe-form input { width: 70%; }
 }
 
+
+/* ##### BREAKPOINTS: SMALL DESKTOPS ##### */
 @media screen and (min-width: 940px) {
-    .desktop-only { display: block; }
-    .wrapper { width: 80%; }
-    
-    /* HEADER BREAKPOINT */
-    .hero-container h1, .hero-container img {
-        float: left;
+    /* FONT RESIZING */
+    html { font-size: 150%; }
+    li, p, label {
+        font-size: 0.55rem;
+        line-height: 0.8rem;
     }
+    .social-media-icons i { font-size: 0.6rem; }
+
+    /* PADDING INCREASE */
+    header, main > *, footer > * { padding: 2.5rem 0; }
+    header { padding-top: 0.25rem; }
+
+    /* LEFT ALIGNS ALL BUTTONS */
+    button { margin-left: 0; margin-right: 0; }
+
+    /* FEATURED POST BREAKPOINT */
+    .featured-post img, .featured-post-content { float: left; }
+    .featured-post img {
+        width: 250px;
+        height: 250px;
+    }
+    .featured-post-content {
+        width: calc(100% - 1rem - 250px);
+        margin-left: 1rem;
+    }
+    .featured-post-content h2 {
+        text-align: left;
+        margin-top: 0;
+    }
+
+    /* SECONDARY POSTS BREAKPOINT */
+    .secondary-post { clear: both; }
+
+    /* The even and odd pseudo-selectors allow you to dynamically add more posts, */
+    /* and the alternating image position continues */
+    .secondary-post:nth-child(even) > * {
+        float: left;
+        width: 50%;
+    }
+    .secondary-post:nth-child(odd) > * { width: 50%; }
+    .secondary-post:nth-child(odd) > *:first-child { float: right; }
+    .secondary-post:nth-child(odd) > *:last-child { float: left; }
+
+    .secondary-post-content { padding: 4% 0 0; }
+    .secondary-post-content .wrapper { width: 70%; }
+
+    /* FOOTER BREAKPOINT */
+    .footer-nav, .subscribe-form, .contact-info { float: left; }
+    .subscribe-form, .contact-info { margin-left: 0.75rem; }
+
+    .footer-nav {
+        margin: 2.6rem 0 0;
+        width: calc(25% - 0.5rem);
+        text-align: left;
+    }
+    .subscribe-form { width: calc(50% - 0.5rem); }
+    .contact-info {
+        margin-top: 0.5rem;
+        width: calc(25% - 0.5rem);
+        text-align: right;
+    }
+
+    .subscribe-form input { float: left; width: 60%; }
+    .subscribe-form button { float: left; }
+
+    
+}
+
+/* ##### BREAKPOINTS: FULL DESKTOPS ##### */
+@media screen and (min-width: 1280px) {
+    /* TIGHTER WRAPPER */
+    .wrapper { width: 80%; }
+    /* FONT RESIZING */
+    html { font-size: 175%; }
+
+    /* SECONDARY POSTS BREAKPOINT */
+    .secondary-post-content { padding: 8% 0 0; }
 }
 
 /* DELETE BELOW LATER */
