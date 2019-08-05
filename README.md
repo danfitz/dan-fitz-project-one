@@ -11,11 +11,19 @@ For this PSD conversion, I wanted to try something new and design the website **
 
 Creating the mobile version was easy. It just involved setting my inspector to `320px` and adding each block one by one, one below the next.
 
-The challenge of mobile-first, I found, came down to one constant question: **for each section, at what point is there enough space for me to float elements within that section onto the same line?**
+The challenge of mobile-first, I found, came down to one constant question:
+* **For each section, at what point is there enough space for me to float elements within that section onto the same line?**
 
-**Answer**: the point at which they start to become *unreadable* when stretched the full width of the page.
+Answer:
+* **The point at which they start to become *unviewable* when stretched the full width of the page.**
 
 `[move around width while viewing featured post image]`
+
+My methodology for mobile-first:
+1. Stack blocks one below the next at lowest viewport (likely `320px`).
+2. For each section, stretch viewport width.
+3. When it starts becoming hard to read or see what's going on, start floating and/or shrinking elements.
+
 
 ### Challenge #2: Cropping Images via CSS
 
@@ -32,7 +40,9 @@ div {
   height: 500px;
 ```
 
-However, `background` is better for atmospheric images, and I felt like the images in the PSD had semantic value for assistive devices. I needed to find a way to crop using an `img` tag. Here's my solution:
+However, `background` is better for atmospheric images, and I felt like the images in the PSD had semantic value for assistive devices. I wanted to find a way to crop using an `img` tag.
+
+Here's my solution:
 
 ```html
 <div class="image-container">
