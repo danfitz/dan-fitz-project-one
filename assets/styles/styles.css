@@ -164,12 +164,12 @@ h1 {
     margin-top: 1.25rem;
 }
 
-.featured-image {
+.featured-image-container {
     overflow: hidden;
     text-align: center;
 }
 
-.featured-image img {
+.featured-image-container img {
     width: 150%; 
     height: 60vw;
     object-fit: cover;
@@ -299,7 +299,7 @@ footer { text-align: center; }
         font-size: 1rem;
     }
 
-    .featured-image img {
+    .featured-image-container img {
         width: 50%;
         height: auto;
     }
@@ -347,8 +347,8 @@ footer { text-align: center; }
     button { margin: 0; }
 
     /* FEATURED POST BREAKPOINT */
-    .featured-image, .featured-post-content { float: left; }
-    .featured-image img {
+    .featured-image-container, .featured-post-content { float: left; }
+    .featured-image-container img {
         width: 250px;
         height: 250px;
     }
@@ -364,7 +364,8 @@ footer { text-align: center; }
     /* SECONDARY POSTS BREAKPOINT */
     .secondary-post { clear: both; }
 
-    /* The even and odd pseudo-selectors allow you to dynamically add more posts, */
+    /* FOR MY BENEFIT: */
+    /* The even and odd pseudo-selectors allow me to dynamically add more posts, */
     /* and the alternating image position continues */
     .secondary-post:nth-child(even) > * {
         float: left;
