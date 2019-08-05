@@ -127,11 +127,14 @@ i { font-size: 2rem; }
 
 /* ===== HEADER ===== */
 
-header { padding-top: 0.25rem; } /* special case: overrides padding in GENERAL */
+header { padding-top: 0.5rem; } /* special case: overrides padding in GENERAL */
 
 .sandwich-icon {
     margin-bottom: 0.5rem;
     float: right;
+}
+.sandwich-icon i {
+    font-size: 1.5rem;
 }
 
 .hero-container, .hero-title { clear: both; }
@@ -161,11 +164,18 @@ h1 {
     margin-top: 1.25rem;
 }
 
-.featured-post img {
-    /* object-fit: cover; */
-    /* object-position: top left; */
-    /* height: 250px; */
+.featured-image {
+    overflow: hidden;
+    text-align: center;
 }
+
+.featured-image img {
+    width: 150%; 
+    height: 60vw;
+    object-fit: cover;
+    object-position: 0% 30%;
+}
+/* FOR MY BENEFIT: The use of width: 150%, overflow: hidden for a parent container, and height set to 60vw could be a good point of discussion! */
 
 
 /* ##### MAIN: LATEST COLLECTION ##### */
@@ -193,9 +203,6 @@ h1 {
 .sub-nav i { font-size: 2rem; }
 .sub-nav h3 { margin: 1.25rem 0; }
 
-/* Removes margin to match spacing at top of container */
-/* .sub-nav-item:last-child h3 { margin-bottom: 0; } */
-
 
 /* ##### MAIN: SECONDARY POSTS ##### */
 
@@ -203,14 +210,14 @@ h1 {
     padding: 0;
 }
 
-.secondary-post-content {
-    padding: 1.75rem 0;
+.secondary-post img {
+    object-fit: cover;
+    object-position: center;
+    height: 11rem;
 }
 
-.secondary-post img {
-    /* object-fit: cover; */
-    /* object-position: center; */
-    /* height: 200px; */
+.secondary-post-content {
+    padding: 1.75rem 0;
 }
 
 
@@ -256,6 +263,7 @@ footer { text-align: center; }
 
 /* ##### BREAKPOINTS: TABLETS & UP ##### */
 @media screen and (min-width: 768px) {
+    /* HIDE MOBILE ELEMENTS & DISPLAY TABLET + DESKTOP ELEMENTS */
     .mobile-only { display: none; }
     .tablets-and-up { display: block; }
 
@@ -267,7 +275,7 @@ footer { text-align: center; }
         width: calc(50% - 40px);
     }
     h1 {
-        margin-top: 5rem;
+        margin-top: 6rem;
     }
     .hero-container img {
         position: static;
@@ -289,6 +297,11 @@ footer { text-align: center; }
     .social-media-icons i {
         padding-top: 0.25rem;
         font-size: 1rem;
+    }
+
+    .featured-image img {
+        width: 50%;
+        height: auto;
     }
 
     /* LATEST COLLECTIONS BREAKPOINT */
@@ -326,16 +339,16 @@ footer { text-align: center; }
     }
     .social-media-icons i { font-size: 0.6rem; }
 
-    /* PADDING INCREASE */
+    /* SECTION PADDING INCREASE */
     header, main > *, footer > * { padding: 2.5rem 0; }
-    header { padding-top: 0.25rem; }
+    header { padding-top: 0.25rem; } /* This is a decrease */
 
     /* LEFT ALIGNS ALL BUTTONS */
-    button { margin-left: 0; margin-right: 0; }
+    button { margin: 0; }
 
     /* FEATURED POST BREAKPOINT */
-    .featured-post img, .featured-post-content { float: left; }
-    .featured-post img {
+    .featured-image, .featured-post-content { float: left; }
+    .featured-image img {
         width: 250px;
         height: 250px;
     }
@@ -364,6 +377,11 @@ footer { text-align: center; }
     .secondary-post-content { padding: 4% 0 0; }
     .secondary-post-content .wrapper { width: 70%; }
 
+    .secondary-post img {
+        object-fit: contain;
+        height: auto;
+    }
+
     /* FOOTER BREAKPOINT */
     .footer-nav, .subscribe-form, .contact-info { float: left; }
     .subscribe-form, .contact-info { margin-left: 0.75rem; }
@@ -390,6 +408,7 @@ footer { text-align: center; }
 @media screen and (min-width: 1280px) {
     /* TIGHTER WRAPPER */
     .wrapper { width: 80%; }
+
     /* FONT RESIZING */
     html { font-size: 175%; }
 
