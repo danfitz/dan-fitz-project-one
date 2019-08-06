@@ -51,6 +51,10 @@ html {
     /* Base colours for all content blocks (might get overridden) */
     color: var(--text-color);
     background-color: var(--primary-color);
+
+    /* Necessary to hide elements in .mobile-only and .tablets-and-up classes */
+    /* (see below) */
+    overflow-x: hidden;
 }
 
 /* Every other section will be given a red background colour */
@@ -90,7 +94,7 @@ button {
     margin: 0 auto;
 }
 
-/* Shared properties for li and p elements */
+/* Shared properties for li, p, and label elements */
 li, p, label {
     font-family: var(--info-font);
     font-weight: 300;
@@ -114,6 +118,7 @@ ul {
     padding: 0;
 }
 
+/* Sizing for Font Awesome icons */
 i { font-size: 2rem; }
 
 
@@ -190,7 +195,8 @@ h1 {
 
 .latest-collection li:nth-child(2) { display: none; } /* Hides 2nd image */
 
-.latest-collection li:first-child, .latest-collection li:last-child { width: calc(50% - 0.25rem); }
+.latest-collection li:first-child,
+.latest-collection li:last-child { width: calc(50% - 0.25rem); }
 
 .latest-collection li:first-child {
     float: right;
@@ -200,7 +206,7 @@ h1 {
     float: left;
 }
 
-/* Removes empty space at bottom of container */
+/* Removes empty space at bottom of container due to whitespace dependency */
 .latest-collection img { display: block; }
 
 
@@ -231,6 +237,7 @@ h1 {
 
 
 /* ===== FOOTER ===== */
+
 footer { text-align: center; }
 .footer-content { background-color: var(--secondary-color); }
 .footer-content p {
@@ -285,13 +292,11 @@ footer { text-align: center; }
         float: left;
         width: calc(50% - 40px);
     }
-    h1 {
-        margin-top: 6rem;
-    }
+    h1 { margin-top: 6rem; }
     .hero-container img {
         position: static;
         margin-left: 80px;
-        max-width: calc(50% - 40px);
+        max-width: calc(50% - 40px); /* Overrides max-width set above */
     }
 
     .main-nav { width: 40%; }
@@ -311,12 +316,16 @@ footer { text-align: center; }
         font-size: 1rem;
     }
 
+    /* FEATURED POST BREAKPOINT */
     .featured-image-container img {
         width: 50%;
         height: auto;
     }
 
     /* LATEST COLLECTIONS BREAKPOINT */
+    
+    /* This selector was required because it's the only one specific enough */
+    /* to override the selectors above */
     .latest-collection li:nth-child(1n) /* Targets all children */ {
         display: block;
         float: left;
@@ -332,7 +341,7 @@ footer { text-align: center; }
     }
 
     /* FOOTER NAV BREAKPOINT */
-    .footer-nav ul { margin-top: 0;  }
+    .footer-nav ul { margin-top: 0; }
     .footer-nav li {
         float: none;
         width: 100%;
@@ -353,7 +362,7 @@ footer { text-align: center; }
 
     /* SECTION PADDING INCREASE */
     header, main > *, footer > * { padding: 2.5rem 0; }
-    header { padding-top: 0.25rem; } /* This is a decrease */
+    header { padding-top: 0.25rem; } /* This exception is a decrease */
 
     /* LEFT ALIGNS ALL BUTTONS */
     button { margin: 0; }
@@ -365,7 +374,7 @@ footer { text-align: center; }
         height: 250px;
     }
     .featured-post-content {
-        width: calc(100% - 1rem - 250px);
+        width: calc(100% - 1rem - 250px); /* Formula for taking up remaining width */
         margin-left: 1rem;
     }
     .featured-post-content h2 {
@@ -388,7 +397,7 @@ footer { text-align: center; }
     .secondary-post:nth-child(odd) > *:last-child { float: left; }
 
     .secondary-post-content { padding: 4% 0 0; }
-    .secondary-post-content .wrapper { width: 70%; }
+    .secondary-post-content .wrapper { width: 70%; } /* Unique wrapper width */
 
     .secondary-post img {
         object-fit: contain;
@@ -404,16 +413,15 @@ footer { text-align: center; }
         width: calc(25% - 0.5rem);
         text-align: left;
     }
-    .subscribe-form { width: calc(50% - 0.5rem); }
+    .subscribe-form { width: calc(50% - 0.5rem); }    
+    .subscribe-form input { float: left; width: 60%; }
+    .subscribe-form button { float: left; }
+    
     .contact-info {
         margin-top: 0.5rem;
         width: calc(25% - 0.5rem);
         text-align: right;
     }
-
-    .subscribe-form input { float: left; width: 60%; }
-    .subscribe-form button { float: left; }
-
     
 }
 
@@ -432,10 +440,4 @@ footer { text-align: center; }
 
     /* SECONDARY POSTS BREAKPOINT */
     .secondary-post-content { padding: 8% 0 0; }
-}
-
-/* DELETE BELOW LATER */
-
-main > *:nth-child(n+6) {
-    display: none;
 }
