@@ -12,8 +12,12 @@ To navigate, simply ctrl+F to the section
     a. FEATURED POST
     b. LATEST COLLECTION
     c. SUB NAV
+    d. SECONDARY POSTS
 5. FOOTER
-X. BREAKPOINTS
+6. BREAKPOINTS
+    a. 768px BREAKPOINT - tablets and up
+    b. 940px BREAKPOINT - small desktops
+    c. 1280px BREAKPOINT - full desktops
 
 */
 
@@ -121,8 +125,11 @@ i { font-size: 2rem; }
     margin: 0 auto;
 }
 
-.mobile-only { display: block; }
-.tablets-and-up { display: none; }
+.mobile-only { position: static; }
+.tablets-and-up {
+    position: absolute;
+    right: 10000px;
+}
 
 
 /* ===== HEADER ===== */
@@ -152,6 +159,7 @@ h1 {
     position: relative;
     left: -15%;
     width: 100%;
+    max-width: 20rem;
 }
 
 
@@ -264,8 +272,11 @@ footer { text-align: center; }
 /* ##### BREAKPOINTS: TABLETS & UP ##### */
 @media screen and (min-width: 768px) {
     /* HIDE MOBILE ELEMENTS & DISPLAY TABLET + DESKTOP ELEMENTS */
-    .mobile-only { display: none; }
-    .tablets-and-up { display: block; }
+    .mobile-only {
+        position: absolute;
+        left: 10000px;
+    }
+    .tablets-and-up { position: static; }
 
     /* HEADER BREAKPOINT */
     header { position: relative; }
@@ -280,6 +291,7 @@ footer { text-align: center; }
     .hero-container img {
         position: static;
         margin-left: 80px;
+        max-width: calc(50% - 40px);
     }
 
     .main-nav { width: 40%; }
@@ -333,11 +345,11 @@ footer { text-align: center; }
 @media screen and (min-width: 940px) {
     /* FONT RESIZING */
     html { font-size: 150%; }
-    li, p, label {
-        font-size: 0.55rem;
-        line-height: 0.8rem;
+    p, li, label {
+        font-size: 0.65rem;
+        line-height: 1rem;
     }
-    .social-media-icons i { font-size: 0.6rem; }
+    .social-media-icons i { font-size: 0.8rem; }
 
     /* SECTION PADDING INCREASE */
     header, main > *, footer > * { padding: 2.5rem 0; }
@@ -412,6 +424,11 @@ footer { text-align: center; }
 
     /* FONT RESIZING */
     html { font-size: 175%; }
+    p, li, label {
+        font-size: 0.55rem;
+        line-height: 0.8rem;
+    }
+    .social-media-icons i { font-size: 0.6rem; }
 
     /* SECONDARY POSTS BREAKPOINT */
     .secondary-post-content { padding: 8% 0 0; }
