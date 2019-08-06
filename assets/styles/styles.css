@@ -15,9 +15,10 @@ To navigate, simply ctrl+F to the section
     d. SECONDARY POSTS
 5. FOOTER
 6. BREAKPOINTS
-    a. 768px BREAKPOINT - tablets and up
-    b. 940px BREAKPOINT - small desktops
-    c. 1280px BREAKPOINT - full desktops
+    a. 480px BREAKPOINT - landscape phones and up
+    b. 768px BREAKPOINT - tablets and up
+    c. 940px BREAKPOINT - small desktops
+    d. 1280px BREAKPOINT - full desktops
 
 */
 
@@ -93,6 +94,7 @@ button {
     display: block;
     margin: 0 auto;
 }
+button:hover { box-shadow: 0 0 0 0.15rem var(--text-color); }
 
 /* Shared properties for li, p, and label elements */
 li, p, label {
@@ -276,6 +278,15 @@ footer { text-align: center; }
 
 /* ===== BREAKPOINTS ===== */
 
+/* ##### BREAKPOINTS: LANDSCAPE PHONES & UP ##### */
+@media screen and (min-width: 480px) {
+    /* FEATURED POST BREAKPOINT */
+    .featured-image-container img {
+        width: 50%;
+        height: auto;
+    }
+}
+
 /* ##### BREAKPOINTS: TABLETS & UP ##### */
 @media screen and (min-width: 768px) {
     /* HIDE MOBILE ELEMENTS & DISPLAY TABLET + DESKTOP ELEMENTS */
@@ -314,12 +325,6 @@ footer { text-align: center; }
     .social-media-icons i {
         padding-top: 0.25rem;
         font-size: 1rem;
-    }
-
-    /* FEATURED POST BREAKPOINT */
-    .featured-image-container img {
-        width: 50%;
-        height: auto;
     }
 
     /* LATEST COLLECTIONS BREAKPOINT */
