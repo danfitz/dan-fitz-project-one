@@ -52,10 +52,6 @@ html {
     /* Base colours for all content blocks (might get overridden) */
     color: var(--text-color);
     background-color: var(--primary-color);
-
-    /* Necessary to hide elements in .mobile-only and .tablets-and-up classes */
-    /* (see below) */
-    overflow-x: hidden;
 }
 
 /* Every other section will be given a red background colour */
@@ -135,7 +131,7 @@ i { font-size: 2rem; }
 .mobile-only { position: static; }
 .tablets-and-up {
     position: absolute;
-    right: 10000px;
+    visibility: hidden;
 }
 
 
@@ -292,9 +288,12 @@ footer { text-align: center; }
     /* HIDE MOBILE ELEMENTS & DISPLAY TABLET + DESKTOP ELEMENTS */
     .mobile-only {
         position: absolute;
-        left: 10000px;
+        visibility: hidden;
     }
-    .tablets-and-up { position: static; }
+    .tablets-and-up {
+        position: static;
+        visibility: visible;
+    }
 
     /* HEADER BREAKPOINT */
     header { position: relative; }
