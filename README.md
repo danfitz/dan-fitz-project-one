@@ -11,13 +11,15 @@ For this PSD conversion, I wanted to try something new and design the website **
 
 Creating the mobile version was easy. It just involved setting my inspector to `320px` and adding each block one by one, one below the next.
 
+![mobile only view of site](https://thumbs.gfycat.com/PositiveHomelyChipmunk-size_restricted.gif)
+
 The challenge of mobile-first, I found, came down to one constant question:
 * **For each section, at what point is there enough space for me to float elements within that section onto the same line?**
 
 Answer:
 * **The point at which they start to become *unviewable* when stretched the full width of the page.**
 
-`[move around width while viewing featured post image]`
+`![breakpoints for demonstration of site](https://thumbs.gfycat.com/GlassOddBighornsheep-size_restricted.gif)
 
 My methodology for mobile-first:
 1. Stack blocks one below the next at lowest viewport (likely `320px`).
